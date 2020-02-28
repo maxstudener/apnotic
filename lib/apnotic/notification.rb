@@ -3,10 +3,10 @@ require 'apnotic/abstract_notification'
 module Apnotic
 
   class Notification < AbstractNotification
-    attr_accessor :alert, :badge, :sound, :content_available, :category, :custom_payload, :url_args, :mutable_content, :thread_id
+    attr_accessor :alert, :badge, :sound, :content_available, :category, :custom_payload, :url_args, :mutable_content, :thread_id, :priority
 
     def background_notification?
-      aps.count == 1 && aps.key?('content-available') && aps['content-available'] == 1
+      true
     end
 
     private
